@@ -1,17 +1,18 @@
 #!/usr/bin/python3
-""" Starts a Flask web application """
-from flask import Flask, render_template
+""" Script that starts a Flask web application """
+
+from flask import Flask
+from flask import render_template
 from models import storage
 from models.state import State
 from models.amenity import Amenity
-
 
 app = Flask(__name__)
 
 
 @app.route('/hbnb_filters', strict_slashes=False)
 def filters_ls():
-    """ Displays states and amenities in HTML page """
+    """ Displays HTML page with filters for states and amenities """
     states = storage.all(State).values()
     amenities = storage.all(Amenity).values()
     return render_template('10-hbnb_filters.html', states=states,
