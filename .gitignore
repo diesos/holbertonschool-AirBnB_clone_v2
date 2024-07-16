@@ -1,2 +1,22 @@
-# Ignore virtual environment
-venv/
+# DS_Store
+.DS_Store
+
+# JSON
+*.json
+
+# PYC
+*__pycache__
+
+# W3C
+w3c_validator.py
+
+# Test Files
+test_params_create
+test.py
+main_delete.py
+consigne.txt
+main_place_amenities.py
+main.py
+
+# SQL DB file
+100-hbnb.sql
