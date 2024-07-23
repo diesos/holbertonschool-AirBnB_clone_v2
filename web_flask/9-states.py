@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Script that starts a Flask web application """
+""" Script that starts a Flask web  application """
 
 from flask import Flask
 from flask import render_template
@@ -9,24 +9,24 @@ from models.state import State
 app = Flask(__name__)
 
 
-@app.route('/states', strict_slashes=False)
+@app.route("/states", strict_slashes=False)
 def states_ls_noID():
-    """ Displays a HTML page with a list of all State objects """
+    """Displays a HTML page with a list of all State objects"""
     states = storage.all(State)
-    return render_template('9-states.html', states=states)
+    return render_template("9-states.html", states=states)
 
 
-@app.route('/states/<id>', strict_slashes=False)
+@app.route("/states/<id>", strict_slashes=False)
 def states_id(id):
-    """ Displays a HTML page with State """
+    """Displays a HTML page with State"""
     states = storage.all(State)
     state_id = "State." + id if id else None
-    return render_template('9-states.html', states=states, state_id=state_id)
+    return render_template("9-states.html", states=states, state_id=state_id)
 
 
 @app.teardown_appcontext
 def close_session(self):
-    """ Closes the session after each request """
+    """Closes the session after each request"""
     storage.close()
 
 
